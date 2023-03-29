@@ -39,69 +39,69 @@ export default {
   data() {
     return {
       data: [
-        {
-          name: '北京',
-          value: 0
-        },
-        {
-          name: '天津',
-          value: 0
-        },
-        {
-          name: '上海',
-          value: 0
-        },
-        {
-          name: '重庆',
-          value: 0
-        },
-        {
-          name: '河北',
-          value: 0
-        },
-        {
-          name: '河南',
-          value: 0
-        },
-        {
-          name: '云南',
-          value: 0
-        },
-        {
-          name: '辽宁',
-          value: 0
-        },
-        {
-          name: '黑龙江',
-          value: 0
-        },
-        {
-          name: '湖南',
-          value: 0
-        },
-        {
-          name: '安徽',
-          value: 0
-        },
-        {
-          name: '山东',
-          value: 0
-        },
-        {
-          name: '新疆',
-          value: 0
-        },
-        {
-          name: '江苏',
-          value: 0
-        },
+        // {
+        //   name: '北京',
+        //   value: 0
+        // },
+        // {
+        //   name: '天津',
+        //   value: 0
+        // },
+        // {
+        //   name: '上海',
+        //   value: 0
+        // },
+        // {
+        //   name: '重庆',
+        //   value: 0
+        // },
+        // {
+        //   name: '河北',
+        //   value: 0
+        // },
+        // {
+        //   name: '河南',
+        //   value: 0
+        // },
+        // {
+        //   name: '云南',
+        //   value: 0
+        // },
+        // {
+        //   name: '辽宁',
+        //   value: 0
+        // },
+        // {
+        //   name: '黑龙江',
+        //   value: 0
+        // },
+        // {
+        //   name: '湖南',
+        //   value: 0
+        // },
+        // {
+        //   name: '安徽',
+        //   value: 0
+        // },
+        // {
+        //   name: '山东',
+        //   value: 0
+        // },
+        // {
+        //   name: '新疆',
+        //   value: 0
+        // },
+        // {
+        //   name: '江苏',
+        //   value: 0
+        // },
         {
           name: '浙江',
           value: 0
         },
         {
           name: '江西',
-          value: 0
+          value: 1
         },
         {
           name: '湖北',
@@ -186,6 +186,7 @@ export default {
 
     // 进行相关配置
     const chinaGeoCoordMap = {
+      北京: [116.6130, 40.368],
       黑龙江: [127.9688, 45.368],
       内蒙古: [110.3467, 41.4899],
       吉林: [125.8154, 44.2584],
@@ -216,99 +217,100 @@ export default {
       广东: [113.12244, 23.009505],
       广西: [108.479, 23.1152],
       海南: [110.3893, 19.8516],
-      上海: [121.4648, 31.2891]
+      上海: [121.4648, 31.2891],
+      台湾: [120.8648, 23.891],
+      香港: [114.1648, 22.391],
+      澳门: [113.5658, 22.14]
     };
 
     // 然后再定义个chinaDatas数组，来存放一些数据，如：
-    const chinaDatas = [
-      [{
-        name: '黑龙江',
-        value: 0
-      }], [{
-        name: '内蒙古',
-        value: 0
-      }], [{
-        name: '吉林',
-        value: 0
-      }], [{
-        name: '辽宁',
-        value: 0
-      }], [{
-        name: '河北',
-        value: 0
-      }], [{
-        name: '天津',
-        value: 0
-      }], [{
-        name: '山西',
-        value: 0
-      }], [{
-        name: '陕西',
-        value: 0
-      }], [{
-        name: '甘肃',
-        value: 0
-      }], [{
-        name: '宁夏',
-        value: 0
-      }], [{
-        name: '青海',
-        value: 0
-      }], [{
-        name: '新疆',
-        value: 0
-      }], [{
-        name: '西藏',
-        value: 0
-      }], [{
-        name: '四川',
-        value: 0
-      }], [{
-        name: '重庆',
-        value: 0
-      }], [{
-        name: '山东',
-        value: 0
-      }], [{
-        name: '河南',
-        value: 0
-      }], [{
-        name: '江苏',
-        value: 0
-      }], [{
-        name: '安徽',
-        value: 0
-      }], [{
-        name: '湖北',
-        value: 0
-      }], [{
-        name: '浙江',
-        value: 0
-      }], [{
-        name: '福建',
-        value: 0
-      }], [{
-        name: '江西',
-        value: 0
-      }], [{
-        name: '湖南',
-        value: 0
-      }], [{
-        name: '贵州',
-        value: 0
-      }], [{
-        name: '广西',
-        value: 0
-      }], [{
-        name: '海南',
-        value: 0
-      }], [{
-        name: '上海',
-        value: 1
-      }]
-    ];
-
-    console.log(chinaDatas);
+    // const chinaDatas = [
+    //   [{
+    //     name: '黑龙江',
+    //     value: 0
+    //   }], [{
+    //     name: '内蒙古',
+    //     value: 0
+    //   }], [{
+    //     name: '吉林',
+    //     value: 0
+    //   }], [{
+    //     name: '辽宁',
+    //     value: 0
+    //   }], [{
+    //     name: '河北',
+    //     value: 0
+    //   }], [{
+    //     name: '天津',
+    //     value: 0
+    //   }], [{
+    //     name: '山西',
+    //     value: 0
+    //   }], [{
+    //     name: '陕西',
+    //     value: 0
+    //   }], [{
+    //     name: '甘肃',
+    //     value: 0
+    //   }], [{
+    //     name: '宁夏',
+    //     value: 0
+    //   }], [{
+    //     name: '青海',
+    //     value: 0
+    //   }], [{
+    //     name: '新疆',
+    //     value: 0
+    //   }], [{
+    //     name: '西藏',
+    //     value: 0
+    //   }], [{
+    //     name: '四川',
+    //     value: 0
+    //   }], [{
+    //     name: '重庆',
+    //     value: 0
+    //   }], [{
+    //     name: '山东',
+    //     value: 0
+    //   }], [{
+    //     name: '河南',
+    //     value: 0
+    //   }], [{
+    //     name: '江苏',
+    //     value: 0
+    //   }], [{
+    //     name: '安徽',
+    //     value: 0
+    //   }], [{
+    //     name: '湖北',
+    //     value: 0
+    //   }], [{
+    //     name: '浙江',
+    //     value: 0
+    //   }], [{
+    //     name: '福建',
+    //     value: 0
+    //   }], [{
+    //     name: '江西',
+    //     value: 0
+    //   }], [{
+    //     name: '湖南',
+    //     value: 0
+    //   }], [{
+    //     name: '贵州',
+    //     value: 0
+    //   }], [{
+    //     name: '广西',
+    //     value: 0
+    //   }], [{
+    //     name: '海南',
+    //     value: 0
+    //   }], [{
+    //     name: '上海',
+    //     value: 1
+    //   }]
+    // ];
 
     // 可以根据你实际项目需求来添加你的数据。
     // 定义中心点和起始点，代码如下：
@@ -316,31 +318,42 @@ export default {
       const res = [];
       for(let i = 0; i < data.length; i++) {
         const dataItem = data[i];
+        // const fromCoord = chinaGeoCoordMap[dataItem[0].name];
         const fromCoord = chinaGeoCoordMap[dataItem.name];
 
-        console.log(dataItem, '====', dataItem.name, '==--==--==', fromCoord);
-        // const fromCoord = chinaGeoCoordMap[dataItem[0].name];
-        const toCoord = [104.630825, 28.760189];// 中心点地理坐标
+        const toCoord = [103.5901, 36.3043];// 中心点地理坐标
         if(fromCoord && toCoord) {
           res.push([{
             coord: fromCoord,
-            value: dataItem.value
             // value: dataItem[0].value
+            value: dataItem.value
           }, {
             coord: toCoord
           }]);
         }
       }
-      console.log(res, '------');
       return res;
     };
 
     const series = [];
+    // const _this = this;
 
-    // [['宜宾市', chinaDatas]].forEach(function(item, i) {
-    [['宜宾市', this.data]].forEach(function(item, i) {
-      console.log(item, '======', item[1])
-      series.push({
+    // [['甘肃', chinaDatas]].forEach(function(item, i) {
+    [['甘肃', this.data]].forEach(function(item, i) {
+      series.push(
+        // {
+        //   name: 'mapSer',
+        //   type: 'map',
+        //   geoIndex: 0,
+        //   selectedMode: false, // 取消选中状态
+        //   label: {
+        //     show: false
+        //   },
+        //   data: _this.data,
+        //   zoom: 1.2
+        // },
+      {
+        // 飞线
         type: 'lines',
         zlevel: 2,
         effect: {
@@ -360,6 +373,7 @@ export default {
         data: convertData(item[1])
       },
       {
+        // 带有涟漪特效动画的散点（气泡）图。利用动画特效可以将某些想要突出的数据进行视觉突出。
         type: 'effectScatter',
         coordinateSystem: 'geo',
         zlevel: 2,
@@ -369,12 +383,12 @@ export default {
           scale: 4 // 波纹圆环最大限制，值越大波纹越大
         },
         label: {
+          // 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等。
           normal: {
             show: true,
             position: 'right', // 显示位置
             offset: [5, 0], // 偏移设置
             formatter: function(params) { // 圆环显示文字
-              console.log(params, '0000000');
               return params.data.name;
             },
             fontSize: 13
@@ -393,8 +407,10 @@ export default {
             color: '#f00'
           }
         },
+        // 标点展示数据
         data: item[1].map(function(dataItem) {
-          console.log(chinaGeoCoordMap[dataItem.name], '=====', [dataItem.value]);
+          // console.log(chinaGeoCoordMap[dataItem[0].name], '===222===', [dataItem[0].value]);
+          // console.log(chinaGeoCoordMap[dataItem.name], '===222===', [dataItem.value]);
           return {
             // 在这里定义你所要展示的数据
             // name: dataItem[0].name,
@@ -406,6 +422,7 @@ export default {
       },
       // 中心点
       {
+        // 散点（气泡）图,直角坐标系上的散点图可以用来展现数据的 x，y 之间的关系，如果数据项有多个维度，其它维度的值可以通过不同大小的 symbol 展现成气泡图，也可以用颜色来表现。这些可以配合 visualMap 组件完成。
         type: 'scatter',
         coordinateSystem: 'geo',
         zlevel: 2,
@@ -450,11 +467,11 @@ export default {
       //   transitionDuration: 0,
       //   extraCssText: 'z-index:100',
       //   formatter: function(params, ticket, callback) {
-      //     //根据业务自己拓展要显示的内容
-      //     var res = "";
-      //     var name = params.name;
-      //     var value = params.value[params.seriesIndex + 1];
-      //     res = "<span style='color:#fff;'>" + name + "</span><br/>数据：" + value;
+      //     // 根据业务自己拓展要显示的内容
+      //     let res = ''
+      //     const name = params.name;
+      //     const value = params.value[params.seriesIndex + 1];
+      //     res = "<span style='color:#fff;'>" + name + '</span><br/>数据：' + value;
       //     return res;
       //   }
       // },

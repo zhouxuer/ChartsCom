@@ -552,7 +552,7 @@ export default {
       // 自动切换定时器， 自动切换项
       // let nows = -1
       // let currentIndex = -1;
-      console.log('length >>> ' + length)
+      // console.log('length >>> ' + length)
       // nows = (nows + 1) % length;
       // this.chart.dispatchAction({
       //     type: 'showTip',

@@ -308,6 +308,61 @@
           </div>
         </el-card>
       </el-tab-pane>
+
+      <el-tab-pane label="地图图表4" class="content-box">
+        <my-container border theme="success">地图图表4</my-container>
+        <my-header title="组件负责人: 肉肉" icon="el-icon-user-solid"></my-header>
+        <el-card class="box-card" size="mini">
+          <div slot="header" class="card-header">
+            <span class="title">使用示例</span>
+          </div>
+          <div>
+            {{ MapChart4Import }}
+            <div style="height: 380px;">
+              <map-chart4
+                :dataset="MapChart4Data"
+                :highlight="showRegion4"
+                :linesMapData="linesMapData4"
+                bg="#3E4B27"
+                :color="MapChart4Color"
+              />
+            </div>
+          </div>
+        </el-card>
+
+        <el-card class="box-card" size="mini">
+          <div slot="header" class="card-header">
+            <span class="title">组件文档</span>
+          </div>
+          <div>
+            <pre>
+            注意！父容器必须有高度！
+
+            引入：import MapChart from "@/components/BiCharts/MapChart";
+
+            dataset: [
+              {
+                name: '江苏',
+                value: 1110
+              }, {
+                name: '上海',
+                value: 10
+              }, {
+                name: '山西',
+                value: 20
+              }, {
+                name: '新疆',
+                value: 1
+              }
+            ],
+            showRegion: '',      // 特定高亮的省份 不传或为空默认轮播
+            bg: "",  // 有数据的省份背景色，不传默认为"#4B2833"
+            color: []   // 高亮时的颜色，不传默认为["#E10014", "#FE3287"]
+
+            </pre>
+          </div>
+        </el-card>
+      </el-tab-pane>
     </el-tabs>
   </my-container>
 </template>
@@ -319,6 +374,7 @@ import LineChart from '@/components/demoCharts/LineChart';
 import MapChart from '@/components/demoCharts/MapChart';
 import MapChart2 from '@/components/demoCharts/MapChart2';
 import MapChart3 from '@/components/demoCharts/MapChart3';
+import MapChart4 from '@/components/demoCharts/MapChart4';
 export default {
 name: 'index',
 components: {
@@ -327,7 +383,8 @@ components: {
   LineChart,
   MapChart,
   MapChart2,
-  MapChart3
+  MapChart3,
+  MapChart4
 },
 data() {
   return {
@@ -430,7 +487,42 @@ data() {
       }
     ],
     showRegion3: '',
-    MapChart3Color: ['#3BDC00', '#BEF600']
+    MapChart3Color: ['#3BDC00', '#BEF600'],
+
+    // 地图图表4
+    MapChart4Import: '<map-chart :dataset="dataset" :highlight="showRegion" bg="#3E4B27" :color="color"/>',
+    MapChart4Data: [
+      {
+        name: '江苏',
+        value: 1110
+      }, {
+        name: '上海',
+        value: 10
+      }, {
+        name: '山西',
+        value: 20
+      }, {
+        name: '新疆',
+        value: 1
+      }
+    ],
+    linesMapData4: [
+      {
+        name: '北京',
+        value: 1
+      }, {
+        name: '上海',
+        value: 1
+      }, {
+        name: '江苏',
+        value: 1
+      }, {
+        name: '湖南',
+        value: 0
+      }
+    ],
+    showRegion4: '',
+    MapChart4Color: ['#f44336', '#BEF600']
   };
 },
 created() {},
