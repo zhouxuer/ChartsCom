@@ -214,6 +214,7 @@
               <map-chart2
                 :dataset="MapChart2Data"
                 :highlight="showRegion2"
+                :linesMapData="linesMapData2"
                 bg="#3E4B27"
                 :color="MapChart2Color"
               />
@@ -268,6 +269,7 @@
               <map-chart3
                 :dataset="MapChart3Data"
                 :highlight="showRegion3"
+                :linesMapData="linesMapData3"
                 bg="#3E4B27"
                 :color="MapChart3Color"
               />
@@ -309,23 +311,17 @@
         </el-card>
       </el-tab-pane>
 
-      <el-tab-pane label="地图图表4" class="content-box">
-        <my-container border theme="success">地图图表4</my-container>
+      <el-tab-pane label="动画" class="content-box">
+        <my-container border theme="success">动画</my-container>
         <my-header title="组件负责人: 肉肉" icon="el-icon-user-solid"></my-header>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
             <span class="title">使用示例</span>
           </div>
           <div>
-            {{ MapChart4Import }}
+            {{ MapChart3Import }}
             <div style="height: 380px;">
-              <map-chart4
-                :dataset="MapChart4Data"
-                :highlight="showRegion4"
-                :linesMapData="linesMapData4"
-                bg="#3E4B27"
-                :color="MapChart4Color"
-              />
+              <animation/>
             </div>
           </div>
         </el-card>
@@ -374,7 +370,7 @@ import LineChart from '@/components/demoCharts/LineChart';
 import MapChart from '@/components/demoCharts/MapChart';
 import MapChart2 from '@/components/demoCharts/MapChart2';
 import MapChart3 from '@/components/demoCharts/MapChart3';
-import MapChart4 from '@/components/demoCharts/MapChart4';
+import Animation from '@/components/demoCharts/Animation';
 export default {
 name: 'index',
 components: {
@@ -384,7 +380,7 @@ components: {
   MapChart,
   MapChart2,
   MapChart3,
-  MapChart4
+  Animation
 },
 data() {
   return {
@@ -420,10 +416,16 @@ data() {
     LineChartImport: '<line-chart :dataset="dataset" :color="color" orient="vertical" unit="%" :money="true"/>',
     LineChartData: {
       date: ['01-01', '01-02', '01-03', '01-04', '01-05'],
-      data: [{
-        name: '在线问诊',
-        data: [2000, 15000, 1200, 2300, 1800]
-      }],
+      data: [
+        {
+          name: '数据1',
+          data: [2000, 15000, 1200, 2300, 1800]
+        },
+        {
+          name: '数据2',
+          data: [1200, 11000, 1500, 5300, 2400]
+        }
+      ],
       // tooltip: "right",
       legend: true
     },
@@ -466,6 +468,21 @@ data() {
         value: 1
       }
     ],
+    linesMapData2: [
+      {
+        name: '北京',
+        value: 1
+      }, {
+        name: '上海',
+        value: 1
+      }, {
+        name: '江苏',
+        value: 1
+      }, {
+        name: '湖南',
+        value: 0
+      }
+    ],
     showRegion2: '',
     MapChart2Color: ['#3BDC00', '#BEF600'],
 
@@ -486,27 +503,7 @@ data() {
         value: 1
       }
     ],
-    showRegion3: '',
-    MapChart3Color: ['#3BDC00', '#BEF600'],
-
-    // 地图图表4
-    MapChart4Import: '<map-chart :dataset="dataset" :highlight="showRegion" bg="#3E4B27" :color="color"/>',
-    MapChart4Data: [
-      {
-        name: '江苏',
-        value: 1110
-      }, {
-        name: '上海',
-        value: 10
-      }, {
-        name: '山西',
-        value: 20
-      }, {
-        name: '新疆',
-        value: 1
-      }
-    ],
-    linesMapData4: [
+    linesMapData3: [
       {
         name: '北京',
         value: 1
@@ -521,8 +518,8 @@ data() {
         value: 0
       }
     ],
-    showRegion4: '',
-    MapChart4Color: ['#f44336', '#BEF600']
+    showRegion3: '',
+    MapChart3Color: ['#3BDC00', '#BEF600']
   };
 },
 created() {},

@@ -4,7 +4,6 @@
 
 <script>
 import * as echarts from 'echarts';
-// import 'echarts/lib/chart/bar'
 import resize from '@/mixins/resize';
 
 export default {
@@ -122,7 +121,11 @@ export default {
             // 柱子间距
             barGap: '42%',
             markLine: {
-              data: [{ type: 'max', name: 'Avg' }]
+              data: [{ type: 'max', name: '起点', value: '10' }],
+              label: {
+                show: true,
+                position: 'start'
+              }
             },
             itemStyle: {
               borderRadius: 4,
@@ -224,52 +227,6 @@ export default {
           },
           // 自定义样式
           extraCssText: 'border-left: 2px solid #2c9df5;background: repeating-linear-gradient(to right, #2C9DF596, #1f7fcd48, #1f7fcd00);'
-          // extraCssText: 'backdrop-filter: blur(20px); border-right: 1px;'
-          // formatter: (params) => {
-          //   // 获取标题
-          //   const index = params[0].dataIndex;
-          //   let titleStr = '';
-          //   if(this.dataset.title && this.dataset.title.length > 0) {
-          //     titleStr = `
-          //       <div  class="tooltip-title2" style="margin-bottom: 0px;">
-          //         ${this.dataset.title[index]}
-          //       </div>
-          //     `
-          //   }
-
-          //   let str = '';
-          //   if (params.length === 1) {
-          //     str = `<div>${this.filters.ThousandSeparator(
-          //       params[0].data
-          //     )}</div>`;
-          //   } else {
-          //     for (let i = 0; i < params.length; i++) {
-          //       let borderWidth = 1;
-          //       let padding = 'padding: 0 12px';
-          //       if (i === params.length - 1) {
-          //         borderWidth = 0;
-          //         padding = 'padding: 0 0 0 12px';
-          //       } else if (i === 0) {
-          //         padding = 'padding: 0 12px 0 0';
-          //       }
-          //       str += `<div style="float: left;text-align: center;border-right: ${borderWidth}px solid #56595C;${padding};">
-          //           <div style="font-size: 12px;color: #ffffff;padding: 0;line-height: 17px;">${
-          //             params[i].seriesName
-          //           }</div>
-          //           <div style="margin-bottom: 0px;font-size: 20px;font-family: 'DIN';color: #ffffff;line-height:24px;">${this.filters.ThousandSeparator(
-          //             params[i].data
-          //           )}</div>
-          //         </div>`;
-          //     }
-          //   }
-
-          //   const result = `
-          //     ${titleStr}
-          //     <div class="tooltip-wrapper">${str}</div>
-          //   `;
-
-          //   return result;
-          // }
         },
         grid: {
           top: '38px',
@@ -281,14 +238,17 @@ export default {
         xAxis: [
           {
             type: 'category',
+            // 轴线样式配置
             axisLine: {
               lineStyle: {
-                color: '#3E4042'
+                color: '#236bb8'
               }
             },
+            // 刻度样式配置
             axisTick: {
               show: false
             },
+            // 刻度标签配置
             axisLabel: {
               color: '#B0B3B8',
               fontSize: this.xFont,
@@ -311,11 +271,7 @@ export default {
             // 线样式
             lineStyle: {
               color: '#721B729C',
-              width: 2,
-              type: 'solid',
-              cap: 'butt',
-              join: 'miter',
-              miterLimit: 10
+              width: 2
             },
             // 左侧标签
             label: {
@@ -334,21 +290,29 @@ export default {
             }
           },
           min: 0,
+          // 轴线
           axisLine: {
-            show: false
+            lineStyle: {
+              color: '#236bb8'
+            }
           },
+          // 刻度
           axisTick: {
             show: false,
             length: 2 // 刻度线长度
           },
+          // 分割线
           splitLine: {
+            show: false,
             lineStyle: {
               type: 'dashed',
               color: '#3E4042'
             }
           },
+          // 刻度标签
           axisLabel: {
-            color: '#B0B3B8',
+            // show: false,
+            color: '#B0B3B800',
             fontSize: 12
           }
         },
@@ -371,41 +335,6 @@ export default {
       this.chart = echarts.init(this.$el, 'dark');
       this.setChartOption();
     }
-
-    // 图表数据根据数据量展示处理
-    // dataListShow(value) {
-    //   if (value.length <= 10) {
-    //     // 10条数据以内全部显示
-    //     let data = {
-    //       end: 100
-    //     }
-    //     return data
-    //   } else if (value.length <= 20) {
-    //     // 20条数据以内显示一半
-    //     let data = {
-    //       end: 50
-    //     }
-    //     return data
-    //   } else if (value.length <= 30){
-    //     // 大于20条数据，显示7条数据,最多显示21条数据
-    //     let data = {
-    //       end: 30
-    //     }
-    //     return data
-    //   } else if (value.length <= 60) {
-    //     // 大于20条数据，显示7条数据,最多显示21条数据
-    //     let data = {
-    //       end: 20
-    //     }
-    //     return data
-    //   } else {
-    //     // 大于20条数据，显示7条数据,最多显示21条数据
-    //     let data = {
-    //       end: 10
-    //     }
-    //     return data
-    //   }
-    // }
   }
 };
 </script>

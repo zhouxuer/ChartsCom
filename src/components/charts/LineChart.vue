@@ -153,7 +153,17 @@ export default {
         if (this.isArea || this.dataset.data.length <= 3) {
           areaStyle = {
             // 区域渐变
-            color: this.color[index],
+            // color: this.color[index],
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              {
+                offset: 0,
+                color: this.color[index]
+              },
+              {
+                offset: 1,
+                color: '#3895E000'
+              }
+            ]),
             opacity: 0.1 // 渐变透明度
             // 折线阴影部分
             // shadowBlur: 10,

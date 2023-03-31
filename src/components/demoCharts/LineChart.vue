@@ -157,17 +157,17 @@ export default {
         if (this.isArea || this.dataset.data.length <= 3) {
           areaStyle = {
             // 区域渐变
-            // color: this.color[index],
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              {
-                offset: 0,
-                color: this.color[index]
-              },
-              {
-                offset: 1,
-                color: '#3895E000'
-              }
-            ]),
+            color: this.color[index],
+            // color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            //   {
+            //     offset: 0,
+            //     color: this.color[index]
+            //   },
+            //   {
+            //     offset: 1,
+            //     color: '#3895E000'
+            //   }
+            // ]),
             opacity: 0.2 // 渐变透明度
             // 折线阴影部分
             // shadowBlur: 10,
@@ -261,216 +261,6 @@ export default {
                 size: 0
               }
             }
-            // className: 'tooltip',
-            // backgroundColor: 'rgba(255,255,255,0.10)',
-            // borderColor: '#6E7175',
-            // borderWidth: 1,
-            // borderRadius: 8,
-            // padding: [12, 20],
-            // textStyle: {
-            //   fontSize: 12,
-            //   color: '#ffffff'
-            // },
-            // extraCssText: 'backdrop-filter: blur(20px);z-index: 3;'
-            // position: (pos, params, dom, rect, size) => {
-            //   if (this.dataset.tooltip == "right") {
-            //     return [pos[0] + 30, "10%"];
-            //   } else {
-            //     var obj = { top: 0 };
-            //     // obj[['left', 'right'][+(pos[0] < size.viewSize[0] / 2)]] = pos[0];
-            //     if (pos[0] > (size.viewSize[0] / 4) * 3) {
-            //       //鼠标位置大于屏幕宽度4分之三
-            //       obj[["left", "right"][+(pos[0] < size.viewSize[0] / 2)]] =
-            //         (pos[0] / 8) * 6 - 100;
-            //     } else if (
-            //       pos[0] >= size.viewSize[0] / 2 &&
-            //       pos[0] < (size.viewSize[0] / 4) * 3
-            //     ) {
-            //       //largethan equals one half and less than 3/4
-            //       obj[["left", "right"][+(pos[0] < size.viewSize[0] / 2)]] =
-            //         (pos[0] / 8) * 5 - 100;
-            //     } else {
-            //       obj[["left", "right"][+(pos[0] > size.viewSize[0] / 2)]] =
-            //         pos[0] + 100;
-            //     }
-            //     return obj;
-            //   }
-            // },
-            // formatter: (params) => {
-            //   let str = '';
-            //   // 获取标题
-            //   const index = params[0].dataIndex;
-            //   let titleStr = '';
-            //   if (this.dataset.title && this.dataset.title.length > 0) {
-            //     titleStr = `
-            //     <div class="tooltip-title">
-            //       ${this.dataset.title[index]}
-            //     </div>
-            //   `;
-            //   }
-            //   // 拼接每项数据
-            //   params.forEach((ele) => {
-            //     if (ele.seriesName) {
-            //       let _data = 0;
-            //       let _unit = '';
-            //       if (ele.data >= 10000) {
-            //         _data = this.filters.isTenThousand(ele.data);
-            //         _unit = 'W';
-            //       } else {
-            //         _data = ele.data;
-            //       }
-            //       let itemValue = '';
-            //       if (this.money) {
-            //         _data = _data.toFixed(2);
-            //         itemValue = `￥${this.filters.ThousandSeparator(
-            //           _data
-            //         )}${_unit}`;
-            //       } else {
-            //         itemValue = `${this.filters.ThousandSeparator(
-            //           _data
-            //         )}${_unit}${this.unit}`;
-            //       }
-            //       if (this.formatterType === 'flex') {
-            //         str += `
-            //       <div class="line-tooltip-wrapper">
-            //         <i style="width: 4px;height: 4px;display: inline-block;background: ${ele.color};border-radius: 50%;position: absolute;top: 10px;"></i>
-            //         <div class="text-label"><span>${ele.seriesName}</span></div>
-            //         <span class="text-value">${itemValue}</span>
-            //       </div>
-            //     `;
-            //       } else if (this.formatterType === 'float') {
-            //         str += `
-            //         <div style="display: flex;margin:8px 0;justify-content:space-between">
-            //           <div style="display:flex;width:auto;align-items:center;">
-            //             <i style="width: 4px;height: 4px;display: inline-block;background: ${ele.color};border-radius: 50%;margin-right:6px"></i>
-            //             <span>${ele.seriesName}</span>
-            //           </div>
-            //           <div style="width: auto">
-            //             <span>${itemValue}</span>
-            //           </div>
-            //         </div>
-            //         `;
-            //       }
-            //     }
-            //   });
-            //   let chartStyle = '';
-            //   if (this.width) chartStyle = 'width:' + this.width + ';';
-
-            //   if (this.formatterType !== 'grid') {
-            //     const b = `
-            //       ${titleStr}
-            //       <div class="line-t-wrapper ${
-            //         this.orients === 'vertical' ? 'vertical' : ''
-            //       }" style='${chartStyle}' >
-            //         ${str}
-            //       </div>
-            //     `;
-            //     return b;
-            //   } else {
-            //     let list = []; // 爱加健康分类
-            //     let list1 = []; // 随身行分类
-            //     let string = null;
-            //     let string1 = null;
-            //     // let list2 = [];
-            //     params.forEach((ele) => {
-            //       if (ele.name) {
-            //         let _data = 0;
-            //         let _unit = '';
-            //         if (ele.data >= 10000) {
-            //           _data = this.filters.isTenThousand(ele.data);
-            //           _unit = 'W';
-            //         } else {
-            //           _data = ele.data;
-            //         }
-            //         // const item_Value = '';
-            //         if (this.money) {
-            //           _data = _data.toFixed(2);
-            //           ele.itemValue = `￥${this.filters.ThousandSeparator(
-            //             _data
-            //           )}${_unit}`;
-            //         } else {
-            //           ele.itemValue = `${this.filters.ThousandSeparator(
-            //             _data
-            //           )}${_unit}${this.unit}`;
-            //         }
-
-            //         if (!this.isGMV) {
-            //           if (ele.seriesName.indexOf('爱加健康') !== -1) {
-            //             list.push(ele);
-            //           } else if (ele.seriesName.indexOf('随身行') !== -1) {
-            //             list1.push(ele);
-            //           }
-            //         }
-            //       }
-            //     });
-            //     if (this.isGMV) {
-            //       list = params.splice(0, 5)
-            //       list1 = params.splice(0, 5)
-            //     }
-            //     if (list.length > 0) {
-            //       string = `
-            //       ${list
-            //         .map((ele) => {
-            //           return `
-            //         <div style="display: flex;margin:8px 0;justify-content:space-between;width:200px">
-            //           <div style="display:flex;width:auto;align-items:center;">
-            //             <i
-            //               style="width: 4px;height: 4px;display: inline-block;background: ${ele.color};border-radius: 50%;margin-right:6px"></i>
-            //             <span>${ele.seriesName}</span>
-            //           </div>
-            //           <div style="width: auto">
-            //             <span>${ele.item_value}</span>
-            //           </div>
-            //         </div>
-            //           `;
-            //         })
-            //         .join('')}
-            //                       `;
-            //     }
-            //     if (list1.length > 0) {
-            //       string1 = `
-            //       ${list1
-            //         .map((ele) => {
-            //           return `
-            //         <div style="display: flex;margin:8px 0;justify-content:space-between;width:200px">
-            //           <div style="display:flex;width:auto;align-items:center;">
-            //             <i
-            //               style="width: 4px;height: 4px;display: inline-block;background: ${ele.color};border-radius: 50%;margin-right:6px"></i>
-            //             <span>${ele.seriesName}</span>
-            //           </div>
-            //           <div style="width: auto">
-            //             <span>${ele.item_value}</span>
-            //           </div>
-            //         </div>
-            //           `;
-            //         })
-            //         .join('')}
-            //                       `;
-            //     }
-            //     const b = `
-            //       ${titleStr}
-            //       <div style="display: flex;margin:8px 0;">
-            //       ${
-            //         string == null
-            //           ? ''
-            //           : `
-            //       <div>
-            //           ${string}
-            //       </div>`
-            //       }
-            //       ${
-            //         string1 == null
-            //           ? ''
-            //           : `
-            //       <div style="margin-left: 20px">
-            //           ${string1}
-            //         </div>`
-            //       }
-            //       </div>
-            //     `;
-            //     return b;
-            //   }
-            // }
           },
           grid: {
             left: '20',
@@ -497,7 +287,7 @@ export default {
             data: this.dataset.date,
             axisLine: {
               lineStyle: {
-                color: '#4D4D4D'
+                color: '#236bb8'
               }
             },
             axisTick: {
@@ -511,7 +301,7 @@ export default {
               fontSize: 12
             },
             splitLine: {
-              show: true, // 显示纵向网格线
+              show: false, // 显示纵向网格线
               lineStyle: {
                 color: '#3E4042',
                 type: 'solid'
@@ -520,9 +310,12 @@ export default {
           },
           yAxis: {
             type: 'value',
-            offset: '20',
+            offset: '0',
             axisLine: {
-              show: false
+              // show: true
+              lineStyle: {
+                color: '#236bb8'
+              }
             },
             axisTick: {
               show: false // 不显示刻度线
