@@ -429,7 +429,8 @@ data() {
       // tooltip: "right",
       legend: true
     },
-    LineChartColor: ['#3895e0'],
+    // 几条数据几个颜色
+    LineChartColor: ['#3895e0', '#A6FE00'],
 
     // 地图图表
     MapChartImport: '<map-chart :dataset="dataset" :highlight="showRegion" bg="#3E4B27" :color="color"/>',

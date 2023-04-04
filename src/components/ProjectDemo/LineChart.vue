@@ -39,6 +39,11 @@ export default {
       required: false,
       default: false
     },
+    smooth: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
     orient: {
       type: String,
       required: false,
@@ -93,11 +98,12 @@ export default {
   },
   computed: {
     changeData() {
-      const { dataset, color, isArea, orient, unit, money, right } = this;
+      const { dataset, color, isArea, smooth, orient, unit, money, right } = this;
       return {
         dataset,
         color,
         isArea,
+        smooth,
         orient,
         unit,
         money,
@@ -154,7 +160,7 @@ export default {
       this.dataset.data.forEach((item, index) => {
         let areaStyle = null;
         // 折线区域面积图配置
-        if (this.isArea || this.dataset.data.length <= 3) {
+        if (this.isArea) {
           areaStyle = { // 曲线阴影
             // 区域渐变
             // color: this.color[index],
@@ -178,7 +184,7 @@ export default {
         const _item = {
           ...item,
           type: 'line',
-          smooth: true,
+          smooth: this.smooth,
           showSymbol: false,
           symbolSize: 8,
           color: this.color[index],
@@ -202,22 +208,26 @@ export default {
         {
           // 图表背景
           backgroundColor: '#131c3c',
-          // legend: {
-          //   data: this.legendData,
-          //   show: this.showLegend,
-          //   bottom: -5,
-          //   orient: 'horizontal',
-          //   icon: 'circle',
-          //   itemWidth: 4,
-          //   itemGap: 20,
-          //   itemStyle: {
-          //     borderWidth: 0
-          //   },
-          //   textStyle: {
-          //     color: '#B0B3B8',
-          //     fontSize: 12
-          //   }
-          // },
+          // 图例
+          legend: {
+            data: this.legendData,
+            show: this.showLegend,
+            orient: 'horizontal',
+            icon: 'roundRect',
+            itemWidth: 14, // 长方形宽度
+            itemHeight: 2, // 长方形高度
+            itemGap: 20,
+            itemStyle: {
+              borderWidth: 0,
+              shadowColor: 'rgba(255, 255, 255, 1)',
+              shadowBlur: 6
+            },
+            textStyle: {
+              color: '#B0B3B8',
+              fontSize: 12
+            }
+          },
+          // 气泡
           tooltip: {
             className: 'tooltip',
             borderRadius: 0,
@@ -231,6 +241,7 @@ export default {
             extraCssText: 'border-left: 2px solid #2c9df5;background: repeating-linear-gradient(to right, #2C9DF596, #1f7fcd48, #1f7fcd00);',
             trigger: 'axis',
             confine: true,
+            // 指示线
             axisPointer: {
               value: '01-01',
               snap: true,
@@ -250,7 +261,6 @@ export default {
               label: {
                 show: true,
                 formatter: function (params) {
-                  // console.log(params, '====');
                   return params.value;
                 },
                 backgroundColor: '#2c5b8e'
@@ -265,7 +275,7 @@ export default {
           grid: {
             left: '20',
             right: this.right,
-            top: '24px',
+            top: '32px',
             containLabel: true,
             bottom: this.bottom
           },
@@ -313,6 +323,7 @@ export default {
             offset: '0',
             axisLine: {
               // show: true
+              show: false,
               lineStyle: {
                 color: '#236bb8'
               }

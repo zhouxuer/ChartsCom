@@ -18,7 +18,11 @@
       </el-menu>
     </el-header>
     <el-main>
-      <router-view></router-view>
+      <transition name="fade" mode="out-in">
+      <!-- <transition name="fade" mode="in-out"> -->
+        <router-view ></router-view>
+      </transition>
+      <!-- <router-view></router-view> -->
     </el-main>
   </el-container>
 </template>
@@ -41,6 +45,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fade-enter {
+ opacity:0;
+}
+.fade-leave{
+ opacity:1;
+}
+.fade-enter-active{
+ transition:opacity 1s;
+}
+.fade-leave-active{
+ transition:opacity 1s;
+}
 .el-header {
   color: rgb(0, 0, 0);
   text-align: center;

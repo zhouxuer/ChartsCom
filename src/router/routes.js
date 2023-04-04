@@ -20,7 +20,7 @@ export default function ({get}) {
         {
           path: '/bar',
           name: 'bar',
-          title: '垂直柱状图',
+          title: '组件过度动画',
           component: () => import('../views/bar.vue')
         },
         {
@@ -36,10 +36,10 @@ export default function ({get}) {
           component: () => import('../views/bar3.vue')
         },
         {
-          path: '/line',
-          name: 'line',
-          title: '折线图',
-          component: () => import('../views/line.vue')
+          path: '/ProjectDemo',
+          name: 'ProjectDemo',
+          title: '实际项目组件',
+          component: () => import('../views/ProjectDemo.vue')
         }
       ]
     }

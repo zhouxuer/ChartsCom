@@ -1,168 +1,141 @@
 <template>
-  <my-chart-bar
-    class="chart-box"
-    :data="data"
-    :settings="settings"
-    :extend="extend"
-  ></my-chart-bar>
+  <my-container border class="tabs-box">
+    <el-card class="box-card" size="mini">
+      <p class="dynamic-title">柱状图</p>
+      <div class="dynamic-box" style="height: 280px;">
+        <bar-chart :dataset="BarChart2Data" />
+      </div>
+    </el-card>
+    <el-card class="box-card" size="mini">
+      <p class="dynamic-title">横线柱状图</p>
+      <div class="chart-h320 dynamic-box" style="width: 450px">
+        <ranking-chart :dataset="RankingChartData"></ranking-chart>
+      </div>
+    </el-card>
+  </my-container>
 </template>
 
 <script>
+// import {
+//   TweenMax,
+//   gsap
+//   // Back
+// } from 'gsap'
+// import { CSSRulePlugin } from 'gsap/CSSRulePlugin'; // 引入css插件,完成某些css动画
+import BarChart from '@/components/demoCharts/BarChart';
+import RankingChart from '@/components/demoCharts/RankingChart';
+// gsap.registerPlugin(CSSRulePlugin)
 export default {
-  name: 'bar',
-  data() {
-    return {
-      data: {
-        color: ['#003366', '#006699', '#4cabce', '#e5323e'],
-        columns: ['渠道', '访问量', '第二个'],
-        // 一个数据为一个柱子[x轴标题, 第一个柱子值, 第二个柱子值], settings
-        rows: [
-          ['直接访问', 320, 308],
-          ['邮件营销', 302, 308],
-          ['联盟广告', 334, 308],
-          ['视频广告', 390, 308],
-          ['搜索引擎', 330, 308]
-        ]
-      },
-      extend: {
-        series: [
-          {
-            // 设置柱间距离
-            // backgroundColor: '#242526',
-            // barCategoryGap: '20%',
-            // 柱子宽度
-            name: '访问量',
-            type: 'bar',
-            barGap: 2,
-            barMaxWidth: 2,
-            itemStyle: {
-              color: {
-                type: 'linear',
-                x: 0,
-                y: 0,
-                x2: 0,
-                y2: 1,
-                colorStops: [
-                  {
-                    offset: 0,
-                    color: '#3895e0' // 0% 处的颜色
-                  },
-                  {
-                    offset: 1,
-                    color: '#3895E01F' // 100% 处的颜色
-                  }
-                ],
-                global: false // 缺省为 false
-              },
-              borderRadius: 4
-            }
-          },
-          {
-            // 设置柱间距离
-            // backgroundColor: '#242526',
-            // barCategoryGap: '20%',
-            // 柱子宽度
-            name: '第二个',
-            barMaxWidth: 2,
-            itemStyle: {
-              color: {
-                type: 'linear',
-                x: 0,
-                y: 0,
-                x2: 0,
-                y2: 1,
-                colorStops: [
-                  {
-                    offset: 0,
-                    color: '#236bb8' // 0% 处的颜色
-                  },
-                  {
-                    offset: 1,
-                    color: '#236BB833' // 100% 处的颜色
-                  }
-                ],
-                global: false // 缺省为 false
-              },
-              borderRadius: 4
-            }
-          }
-        ],
+name: 'index',
+components: {
+  BarChart,
+  RankingChart
+},
+data() {
+  return {
+    // 柱状图图表
+    BarChart2Data: {
+      unit: '篇',
+      legend: true,
+      xAxisLabel: ['01-01', '01-02', '01-03', '01-04', '01-05'],
+      datas: [{
+        name: 'xxx1',
+        data: [20, 10, 30, 23, 11]
+      }, {
+        name: 'xxx2',
+        data: [12, 22, 11, 25, 23]
+      }],
+      barWidth: 10,
+      // end: 50,
+      colorList: [
+        ['#236bb8', '#236BB838'],
+        ['#5CB6FF', '#5CB6FF2B']
+      ]
+    },
 
-        tooltip: {
-          trigger: 'axis',
-          // 移入背景
-          axisPointer: {
-            type: 'shadow',
-            snap: true,
-            shadowStyle: {
-              color: {
-                type: 'linear',
-                x: 0,
-                y: 0,
-                x2: 0,
-                y2: 1,
-                colorStops: [{
-                  offset: 0,
-                  color: '#BEDDFF52' // 0% 处的颜色
-                }, {
-                  offset: 1,
-                  color: '#95C8FF00' // 100% 处的颜色
-                }]
-              }
-            }
-          }
-        },
-
-        xAxis: {
-          z: 99
-        },
-
-        yAxis: {
-          type: 'value',
-          // x轴默认线
-          axisPointer: {
-            value: '0',
-            snap: true,
-            lineStyle: {
-              color: '#7581BD',
-              width: 2
-            },
-            label: {
-              show: true,
-              formatter: function (params) {
-                // console.log(params, '====');
-                return params.value;
-              },
-              backgroundColor: '#7581BD'
-            },
-            handle: {
-              show: true,
-              color: '#7581BD'
-            }
-          }
-        }
-      },
-      settings: {
-        // 设置label
-        // label: 'top',
-        // show: true,
-        backgroundColor: '#111',
-        color: '#111',
-        fontSize: '24px',
-        fontWeight: 600,
-        padding: [5, 0, 0, 0]
-      }
+    // 组件使用示例
+    RankingChartData: {
+      label: ['label1', 'label2', 'label3', 'label4', 'label5', 'label6', 'label7', 'label8', 'label9', 'label10'],
+      data: [100, 92, 80, 70, 66, 53, 22, 10, 2, 0]
     }
-  },
-  created() {},
-  methods: {}
+  };
+},
+// mounted() {
+//   TweenMax.staggerFrom(['.dynamic-box', '.dynamic-title'], 1, {
+//     opacity: 0
+//     // scale: 0,
+//     // transformOrigin: '0% 50% -50'
+//   }, 0.2)
+// },
+// beforeDestroy() {
+//   TweenMax.staggerTo(['.dynamic-box', '.dynamic-title'], 1, {
+//     opacity: 0
+//     // scale: 0,
+//     // transformOrigin: '0% 50% -50'
+//   }, 0.2)
+// },
+methods: {}
 }
 </script>
 
 <style lang="scss" scoped>
-.chart-box {
-  width: 1000px !important;
-  height: 400px !important;
-  background-color: #131c3c;
+.tabs-box {
+  height: 100%;
+  width: 100%;
+  text-align: left;
+  ::v-deep .el-tabs__header {
+    width: 10%;
+  }
+  ::v-deep .el-tabs__content {
+    height: 100%;
+    overflow: auto;
+  }
+}
+.content-box {
+  text-align: left;
+  width: 1200px;
+}
+.box-card {
+  margin-bottom: 20px;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .personal {
+    font-size: 12px;
+
+    i {
+      font-size: 14px;
+      margin-right: 2px;
+      vertical-align: -1px;
+    }
+  }
+}
+
+.chart-h320 {
+  width: 100%;
+  height: 320px;
+  padding: 15px 20px;
+  margin-bottom: 40px;
+  border-radius: 12px;
+  // background-color: #242526;
+}
+
+.chart-wrapper {
+  width: 33.33%;
+  height: 100%;
+  float: left;
+  border-right: 1px solid #3e4042;
+  &:last-child {
+    border-right: 0px;
+  }
 }
 </style>

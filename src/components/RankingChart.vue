@@ -54,7 +54,6 @@ import {
 import { CSSRulePlugin } from 'gsap/CSSRulePlugin'; // 引入css插件,完成某些css动画
 import ListButton from '@/components/BiListButton'
 gsap.registerPlugin(CSSRulePlugin)
-// import ListButton from '@/components/BiListButton'
 export default {
   name: 'BiRankingChart',
   components: {
@@ -130,18 +129,24 @@ export default {
     }
   },
   mounted() {
-    TweenMax.staggerFrom(['.li-box', '.text1'], 1, {
-      opacity: 0,
-      // scale: 0,
-      transformOrigin: '1% 0% -50'
+    TweenMax.staggerFrom('.li-box', 1, {
+      opacity: 0
+      // y: 200,
+      // rotation: '360deg'
     }, 0.2)
+    TweenMax.staggerFrom('.text1', 0.8, {
+      opacity: 0,
+      scale: 0,
+      transformOrigin: '0% 50% -50'
+    }, 0.5);
   },
   beforeDestroy() {
-    TweenMax.staggerTo(['.text1', '.li-box'], 1, {
-      opacity: 0,
-      // scale: 0,
-      transformOrigin: '0% 0% -50'
+    TweenMax.staggerTo('.li-box', 1, {
+      opacity: 0
+      // y: 200,
+      // rotation: '360deg'
     }, 0.2)
+
     clearInterval(this.stepTimer1);
     clearInterval(this.stepTimer2);
     clearInterval(this.timer);

@@ -121,20 +121,25 @@ export default {
             // 柱子间距
             barGap: '42%',
             markLine: {
-              data: [{ type: 'max', name: '起点', value: '10' }],
+              // data: [{ type: 'max', name: '起点', value: '10' }],
               label: {
                 show: true,
                 position: 'start'
               }
             },
+            showBackground: true,
+            backgroundStyle: {
+              color: 'rgba(216, 216, 216, 0.15)',
+              barBorderRadius: [100, 100, 100, 100]
+            },
             itemStyle: {
-              borderRadius: 4,
+              barBorderRadius: [100, 100, 100, 100],
               color: {
                 type: 'linear',
-                x: 0,
+                x: 1,
                 y: 0,
                 x2: 0,
-                y2: 1,
+                y2: 0,
                 colorStops: [
                   {
                     offset: 0,
@@ -200,10 +205,10 @@ export default {
             shadowStyle: {
               color: {
                 type: 'linear',
-                x: 0,
+                x: 1,
                 y: 0,
                 x2: 0,
-                y2: 1,
+                y2: 0,
                 colorStops: [{
                   offset: 0,
                   color: '#BEDDFF36' // 0% 处的颜色
@@ -235,11 +240,13 @@ export default {
           left: '0',
           containLabel: true
         },
-        xAxis: [
+        // xAxis: [
+        yAxis: [
           {
             type: 'category',
             // 轴线样式配置
             axisLine: {
+              show: false,
               lineStyle: {
                 color: '#236bb8'
               }
@@ -259,13 +266,14 @@ export default {
             data: this.dataset.xAxisLabel
           }
         ],
-        yAxis: {
+        // yAxis: {
+        xAxis: {
           show: true,
           type: 'value',
           // Y轴移入
           axisPointer: {
             value: '0',
-            snap: true,
+            snap: false,
             triggerTooltip: false,
             // type: 'line',
             // 线样式
@@ -277,8 +285,8 @@ export default {
             label: {
               show: true,
               formatter: function (params) {
-                // console.log(params, '====');
-                return params.value;
+                // console.log(Number(params.value).toFixed(2), '====');
+                return Number(params.value).toFixed(2);
               },
               // backgroundColor: '#3895E000'
               backgroundColor: '#721B729C'
@@ -293,7 +301,7 @@ export default {
           // 轴线
           axisLine: {
             lineStyle: {
-              color: '#236bb8'
+              color: '#236bb800'
             }
           },
           // 刻度
