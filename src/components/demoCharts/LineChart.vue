@@ -88,7 +88,8 @@ export default {
 
 
       cityMap: null, // 这个属性 保存实例变量
-      currentIndex: -1
+      currentIndex: -1,
+      timer: null
     };
   },
   computed: {
@@ -354,26 +355,28 @@ export default {
       // });
 
       // 取消之前高亮的图形
-      this.chart.dispatchAction({
-        type: 'downplay',
-        seriesIndex: 0,
-        dataIndex: this.currentIndex
-      });
+      if (this.chart) {
+        this.chart.dispatchAction({
+          type: 'downplay',
+          seriesIndex: 0,
+          dataIndex: this.currentIndex
+        });
 
-      this.currentIndex = (this.currentIndex + 1) % length;
+        this.currentIndex = (this.currentIndex + 1) % length;
 
-      // 高亮当前图形
-      this.chart.dispatchAction({
-        type: 'highlight',
-        seriesIndex: 0,
-        dataIndex: this.currentIndex
-      });
-      // 显示 tooltip
-      this.chart.dispatchAction({
-        type: 'showTip',
-        seriesIndex: 0,
-        dataIndex: this.currentIndex
-      });
+        // 高亮当前图形
+        this.chart.dispatchAction({
+          type: 'highlight',
+          seriesIndex: 0,
+          dataIndex: this.currentIndex
+        });
+        // 显示 tooltip
+        this.chart.dispatchAction({
+          type: 'showTip',
+          seriesIndex: 0,
+          dataIndex: this.currentIndex
+        });
+      }
       // 显示 tooltip
       // this.chart.dispatchAction({
       //   type: 'showTip',
