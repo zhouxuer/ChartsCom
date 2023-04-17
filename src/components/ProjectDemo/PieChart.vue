@@ -330,7 +330,7 @@ export default {
                 show: false
               },
               itemStyle: {
-                pieBorderRadius: '20px',
+                borderRadius: 30,
                 borderColor: 'rgba(0, 0, 0)',
                 borderWidth: this.borderWidth
               },

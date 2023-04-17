@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@xdh/my": "^4.2.5",
+    "echarts": "^5.4.2",
     "whatwg-fetch": "^3.5.0"
   },
   "devDependencies": {
