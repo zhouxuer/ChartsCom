@@ -8,7 +8,7 @@ export default function ({get}) {
         {
           path: '/',
           name: 'index',
-          title: '首页',
+          title: '基础图表',
           component: () => import('../views/index.vue')
         },
         {
@@ -16,12 +16,6 @@ export default function ({get}) {
           name: 'comDocument',
           title: '组件文档',
           component: () => import('../views/comDocument.vue')
-        },
-        {
-          path: '/bar',
-          name: 'bar',
-          title: '组件过度动画',
-          component: () => import('../views/bar.vue')
         },
         {
           path: '/bar2',
@@ -36,10 +30,28 @@ export default function ({get}) {
           component: () => import('../views/bar3.vue')
         },
         {
-          path: '/ProjectDemo',
-          name: 'ProjectDemo',
-          title: '实际项目组件',
-          component: () => import('../views/ProjectDemo.vue')
+          path: '/projectDemo1',
+          name: 'projectDemo1',
+          title: '实际项目组件1',
+          component: () => import('../views/projectDemo1.vue')
+        },
+        {
+          path: '/projectDemo2',
+          name: 'projectDemo2',
+          title: '实际项目组件2',
+          component: () => import('../views/projectDemo2.vue')
+        },
+        {
+          path: '/openLayers',
+          name: 'openLayers',
+          title: 'openLayers',
+          component: () => import('../views/openLayers.vue')
+        },
+        {
+          path: '/Three3D',
+          name: 'Three3D',
+          title: 'Three3D',
+          component: () => import('../views/Three3D.vue')
         }
       ]
     }

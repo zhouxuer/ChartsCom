@@ -29,6 +29,9 @@ import vuexOptions from '@/store/index'
  * 项目样式文件
  */
 import '@/style/index.scss'
+// 引入字体
+import '@/assets/albbph/Alibaba.css'
+import '@/assets/ddin/DIN.css'
 
 // 引入数字千分位
 import * as filters from '@/utils/formatNumber'
