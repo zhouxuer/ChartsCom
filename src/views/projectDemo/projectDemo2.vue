@@ -9,7 +9,7 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/19.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/19.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -31,8 +31,8 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/12.png" />
-          <img class="rotationBg" src="../assets/ProjectDemo2/13.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/12.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/13.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -122,7 +122,7 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/03.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/03.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -152,8 +152,8 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/15.png" />
-          <img class="rotationBg" src="../assets/ProjectDemo2/16.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/15.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/16.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -243,7 +243,7 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/14.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/14.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -319,7 +319,7 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/18.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/18.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -395,7 +395,7 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/11.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/11.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -455,10 +455,10 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/02.png" />
-          <img class="rotationBg" src="../assets/ProjectDemo2/04.png" />
-          <img class="rotationBg" src="../assets/ProjectDemo2/06.png" />
-          <img class="rotationBg" src="../assets/ProjectDemo2/10.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/02.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/04.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/06.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/10.png" />
         </el-card>
 
         <el-card class="box-card" size="mini">
@@ -592,7 +592,7 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/09.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/09.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -660,7 +660,7 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/04.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/04.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -727,7 +727,7 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/05.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/05.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -787,7 +787,7 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/08.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/08.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -847,7 +847,7 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/01.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/01.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -920,7 +920,7 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/07.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/07.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -982,7 +982,7 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/01.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/01.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -1044,7 +1044,7 @@
           <div slot="header" class="card-header">
             <span class="title">展示示例</span>
           </div>
-          <img class="rotationBg" src="../assets/ProjectDemo2/06.png" />
+          <img class="rotationBg" src="../../assets/ProjectDemo2/06.png" />
         </el-card>
         <el-card class="box-card" size="mini">
           <div slot="header" class="card-header">
@@ -1082,7 +1082,7 @@
           </div>
           <div>
             <div style="height: 800px;background: #000" class="rotationBg-box">
-              <img class="rotationBg" src="../assets/true.png" />
+              <img class="rotationBg" src="../../assets/true.png" />
               <!-- <rotation-bg /> -->
             </div>
           </div>

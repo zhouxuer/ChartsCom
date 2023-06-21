@@ -98,7 +98,7 @@ export default {
   name: 'PieChart',
   props: {
     dataset: {
-      type: Array,
+      type: Object,
       required: true
     },
     type: {

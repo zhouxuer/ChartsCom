@@ -10,17 +10,28 @@
         mode="horizontal"
         @select="handleSelect"
       >
+        <!--将子菜单抽取出来，做为一个子组件-->
+        <!-- <nav-menu-item v-for="(item,index)  in menuData" :key="index" :datas="item"/> -->
+        <nav-menu-item v-for="(item,i)  in menuList" :key="i" :datas="item"/>
+      </el-menu>
+      <!-- <el-menu
+        router
+        :default-active="this.$router.currentRoute.path"
+        class="el-menu-demo"
+        mode="horizontal"
+        @select="handleSelect"
+      >
         <el-menu-item
           v-for="(item, i) in menuList"
           :key="i"
           :index="item.path"
         >{{ item.title }}</el-menu-item>
-      </el-menu>
+      </el-menu> -->
     </el-header>
     <el-main>
       <!-- <transition name="fade" mode="in-out"> -->
       <transition name="fade" mode="out-in">
-        <router-view ></router-view>
+        <router-view></router-view>
       </transition>
       <!-- <router-view></router-view> -->
     </el-main>
@@ -28,8 +39,12 @@
 </template>
 
 <script>
+import NavMenuItem from './NavMenuItem.vue';
 export default {
   name: 'index',
+  components: {
+    NavMenuItem
+  },
   data() {
     return {
       menuList: this.$router.options.routes[0].children
@@ -62,7 +77,13 @@ export default {
   text-align: center;
   line-height: 60px;
   padding: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   .el-menu-demo {
+    display: flex;
     background-color: rgb(234, 250, 254);
     .el-menu-item {
       color: rgb(74, 74, 74);
@@ -76,6 +97,10 @@ export default {
 .el-main {
   color: #333;
   text-align: center;
-  height: calc(100vh - 60px);
+  position: fixed;
+  top: 60px;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
 </style>

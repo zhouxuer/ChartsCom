@@ -30,16 +30,25 @@ export default function ({get}) {
           component: () => import('../views/bar3.vue')
         },
         {
-          path: '/projectDemo1',
-          name: 'projectDemo1',
-          title: '实际项目组件1',
-          component: () => import('../views/projectDemo1.vue')
-        },
-        {
-          path: '/projectDemo2',
-          name: 'projectDemo2',
-          title: '实际项目组件2',
-          component: () => import('../views/projectDemo2.vue')
+          path: '/projectDemo',
+          component: () => import('../layout/layout.vue'),
+          title: '实际项目组件',
+          name: 'projectDemo',
+          hidden: false,
+          children: [
+            {
+              path: '/projectDemo/projectDemo1',
+              name: 'projectDemo1',
+              title: '实际项目组件1',
+              component: () => import('../views/projectDemo/projectDemo1.vue')
+            },
+            {
+              path: '/projectDemo/projectDemo2',
+              name: 'projectDemo2',
+              title: '实际项目组件2',
+              component: () => import('../views/projectDemo/projectDemo2.vue')
+            }
+          ]
         },
         {
           path: '/openLayers',
