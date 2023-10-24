@@ -85,12 +85,21 @@ export default {
   .el-menu-demo {
     display: flex;
     background-color: rgb(234, 250, 254);
-    .el-menu-item {
-      color: rgb(74, 74, 74);
+    ::v-deep .el-menu-item {
+      color: rgb(99, 92, 92);
     }
-    .is-active {
-      background-color: rgb(255, 255, 255);
+    ::v-deep .el-submenu {
+      .el-submenu__title {
+        color: rgb(99, 92, 92);
+      }
+    }
+    ::v-deep .is-active {
+      background-color: #bae7ff;
       color: rgb(0, 0, 0);
+      .el-submenu__title {
+        background-color: #bae7ff;
+        color: rgb(0, 0, 0);
+      }
     }
   }
 }

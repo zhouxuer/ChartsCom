@@ -11,21 +11,6 @@
           </div>
           <div>
             <div style="height: 800px">
-              <Map3D />
-            </div>
-          </div>
-        </el-card>
-      </el-tab-pane>
-
-      <el-tab-pane label="3d地图练习" class="content-box">
-        <my-container border theme="success">3d地图练习</my-container>
-        <my-header title="组件负责人: 肉肉" icon="el-icon-user-solid"></my-header>
-        <el-card class="box-card" size="mini">
-          <div slot="header" class="card-header">
-            <span class="title">使用示例</span>
-          </div>
-          <div>
-            <div style="height: 800px">
               <foundation />
             </div>
           </div>
@@ -66,13 +51,11 @@
 <script>
 import BarChart2 from '@/components/ProjectDemo1/BarChart2';
 import Foundation from '@/components/Three3D/Foundation/index.vue';
-import Map3D from '@/components/Three3D/Map3D/index.vue';
 export default {
 name: 'Three3D',
 components: {
   BarChart2,
-  Foundation,
-  Map3D
+  Foundation
 },
 data() {
   return {

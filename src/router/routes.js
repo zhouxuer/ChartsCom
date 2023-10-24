@@ -47,6 +47,33 @@ export default function ({get}) {
               name: 'projectDemo2',
               title: '实际项目组件2',
               component: () => import('../views/projectDemo/projectDemo2.vue')
+            },
+            {
+              path: '/projectDemo/projectDemo3',
+              name: 'projectDemo3',
+              title: '实际项目组件3',
+              component: () => import('../views/projectDemo/projectDemo3.vue')
+            }
+          ]
+        },
+        {
+          path: '/Three3D',
+          component: () => import('../layout/layout.vue'),
+          title: 'Three3D',
+          name: 'Three3D',
+          hidden: false,
+          children: [
+            {
+              path: '/Three3D/map',
+              name: 'map',
+              title: '3D地图',
+              component: () => import('../views/Three3D/map.vue')
+            },
+            {
+              path: '/Three3D/structure',
+              name: 'structure',
+              title: '3D建筑',
+              component: () => import('../views/Three3D/structure.vue')
             }
           ]
         },
@@ -55,12 +82,6 @@ export default function ({get}) {
           name: 'openLayers',
           title: 'openLayers',
           component: () => import('../views/openLayers.vue')
-        },
-        {
-          path: '/Three3D',
-          name: 'Three3D',
-          title: 'Three3D',
-          component: () => import('../views/Three3D.vue')
         }
       ]
     }

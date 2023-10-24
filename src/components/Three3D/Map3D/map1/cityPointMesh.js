@@ -5,7 +5,7 @@ import * as THREE from 'three';
 // 矩形平面网格模型设置背景透明的png贴图
 const geometry = new THREE.PlaneBufferGeometry(1, 1); // 默认在XOY平面上
 const textureLoader = new THREE.TextureLoader(); // TextureLoader创建一个纹理加载器对象
-const texture = textureLoader.load('./map3d/光圈贴图.png');
+const texture = textureLoader.load('./Three3D/map3d/mapDemo1/光圈贴图.png');
 
 
 // 每个mesh材质透明度如果不是同步变化，材质不能共享

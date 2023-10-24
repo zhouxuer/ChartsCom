@@ -2,6 +2,9 @@
 import * as THREE from 'three';
 // 引入Three.js扩展库，相机控件OrbitControls
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+// import { CSS2DRenderer, CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer.js';
+// HTML标签相关代码
+import { tag, labelRenderer } from './tag.js';
 // 引入dat.gui.js的一个类GUI
 // import { GUI } from 'three/examples/jsm/libs/dat.gui.module'
 // 引入封装边界线
@@ -47,7 +50,7 @@ lineGroup.position.z = mapHeight + mapHeight * 0.1; // 适当偏移解决深度�
 // cityPointGroup.position.z = mapHeight + mapHeight * 0.01;
 
 //  加载./china.json，结构和world.json 一样，省份对应国家
-loader.load('./map3d/china.json', function (data) {
+loader.load('./Three3D/map3d/mapDemo1/china.json', function (data) {
   // 访问所有省份边界坐标数据：data.features
   data.features.forEach(function (area) {
     // "Polygon"：省份area有一个封闭轮廓
@@ -158,25 +161,65 @@ scene.add(ambient);
 // // 通过GUI改变ambient对象的光源强度属性
 // ambientLight.add(ambient, 'intensity', 0, 1).name('环境光强度')
 
-
-
-
-
 /**
-     * 相机设置
-     */
- const width = 1200; // 窗口宽度
- const height = 800; // 窗口高度
- const k = width / height; // 窗口宽高比
- // var s = 200;
- const s = 15;// 根据包围盒大小(行政区域经纬度分布范围大小)设置渲染范围
- // 创建相机对象
- const camera = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 1000);
- // camera.position.set(200, 300, 200); //设置相机位置
- // camera.position.set(104, 35, 200); //沿着z轴观察
- // 通过OrbitControls在控制台打印相机位置选择一个合适的位置
- camera.position.set(104, -105, 200);
- camera.lookAt(104, 35, 0); // 指向中国地图的几何中心
+  * 相机设置
+  */
+const width = 1360; // 窗口宽度
+const height = 800; // 窗口高度
+const k = width / height; // 窗口宽高比
+// var s = 200;
+const s = 15;// 根据包围盒大小(行政区域经纬度分布范围大小)设置渲染范围
+// 创建相机对象
+const camera = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 1000);
+// camera.position.set(200, 300, 200); //设置相机位置
+// camera.position.set(104, 35, 200); //沿着z轴观察
+// 通过OrbitControls在控制台打印相机位置选择一个合适的位置
+camera.position.set(104, -105, 200);
+camera.lookAt(104, 35, 0); // 指向中国地图的几何中心
+
+
+// 设置文本标签界面大小
+labelRenderer.setSize(width, height);
+// 标注郑州市，（标签名称，x，y，高度偏移）
+scene.add(tag('郑州市', 113.4668, 33.8818, 4.5));
+// 标注南京市
+scene.add(tag('南京市', 120.0586, 32.915, mapHeight));
+// /**
+//     * 创建div元素(作为立方体标签)
+//     */
+//  const div = document.createElement('div');
+//  div.innerHTML = '郑州市';
+//  div.style.padding = '5px 10px';
+//  div.style.color = '#fff';
+//  div.style.fontSize = '12px';
+//  div.style.position = 'absolute';
+//  div.style.backgroundColor = 'rgba(25,25,25,0.5)';
+//  div.style.borderRadius = '5px'
+//  // document.body.appendChild(div);
+
+//  // 获得HTML元素创建的UI界面
+// //  const tag = document.getElementById('tag');
+
+//  // div元素包装为CSS3模型对象CSS3DObject，并插入场景中
+//  const label = new CSS2DObject(div);
+//  div.style.pointerEvents = 'none'; // 避免HTML标签遮挡三维场景的鼠标事件
+//  // 设置HTML元素标签在three.js世界坐标中位置
+//  label.position.set(113.4668, 33.8818, 4.9);
+//  // 缩放CSS3DObject模型对象
+//  label.scale.set(0.06, 0.06, 0.06);
+//  label.rotateX(Math.PI / 2); // 从XOY平面旋转到XOZ平面
+//  scene.add(label); // CSS3模型标签插入到场景中
+
+//  // 创建一个CSS3渲染器CSS3DRenderer
+//  const labelRenderer = new CSS2DRenderer();
+//  labelRenderer.setSize(width, height);
+//  labelRenderer.domElement.style.position = 'absolute';
+//  // 避免renderer.domElement影响HTMl标签定位，设置top为0px
+//  labelRenderer.domElement.style.top = '0px';
+//  labelRenderer.domElement.style.left = '0px';
+//  // 设置.pointerEvents=none，以免模型标签HTML元素遮挡鼠标选择场景模型
+//  labelRenderer.domElement.style.pointerEvents = 'none';
+// //  document.body.appendChild(labelRenderer.domElement);
 
 
 /**
@@ -228,6 +271,7 @@ function render() {
   // if (obj.bool) mesh.rotateY(0.01);
   // 内容更改重新渲染画布内容，执行渲染操作
   renderer.render(scene, camera) // 周期性执行相机的渲染功能，更新canvas画布上的内容
+  labelRenderer.render(scene, camera)
   // 请求再次执行渲染函数render，渲染下一帧
   requestAnimationFrame(render);
 }
@@ -241,4 +285,45 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(104, 35, 0);
 controls.update(); // update()函数内会执行camera.lookAt(controls.target)
 
-export {renderer};
+
+/**
+  * 射线投射器`Raycaster`的射线拾取选中网格模型对象函数choose()
+  * 选中的网格模型变为半透明效果
+  */
+let chooseMesh = null; // 标记鼠标拾取到的mesh
+function choose(event) {
+  if(chooseMesh) {
+    chooseMesh.material.color.set(0x004444); // 恢复原来颜色
+  }
+
+  // 根据id获取模块
+  const mapDox = document.getElementById('map3d1')
+  // 容器顶点坐标
+  const Sx = event.clientX - mapDox.getBoundingClientRect().left; // 鼠标单击位置横坐标
+  const Sy = event.clientY - mapDox.getBoundingClientRect().top; // 鼠标单击位置纵坐标
+
+  // 屏幕坐标转WebGL标准设备坐标（width，height，容器大小 ）
+  const x = (Sx / width) * 2 - 1; // WebGL标准设备横坐标
+  const y = -(Sy / height) * 2 + 1; // WebGL标准设备纵坐标
+
+  // 创建一个射线投射器`Raycaster`
+  const raycaster = new THREE.Raycaster();
+  // 通过鼠标单击位置标准设备坐标和相机参数计算射线投射器`Raycaster`的射线属性.ray
+  raycaster.setFromCamera(new THREE.Vector2(x, y), camera);
+  // 返回.intersectObjects()参数中射线选中的网格模型对象
+  // 未选中对象返回空数组[],选中一个数组1个元素，选中两个数组两个元素
+  const intersects = raycaster.intersectObjects(meshGroup.children);
+  // console.log('射线器返回的对象', intersects);
+  // console.log("射线投射器返回的对象 点point", intersects[0].point);
+  // console.log("射线投射器的对象 几何体",intersects[0].object.geometry.vertices)
+  // intersects.length大于0说明，说明选中了模型
+  if (intersects.length > 0) {
+    intersects[0].object.material.color.set(0x009999);
+    chooseMesh = intersects[0].object;
+  }
+}
+
+addEventListener('click', choose); // 监听窗口鼠标单击事件
+// addEventListener('mousemove', choose); // 监听窗口鼠标划过事件
+
+export {renderer, labelRenderer};

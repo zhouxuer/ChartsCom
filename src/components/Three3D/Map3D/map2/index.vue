@@ -1,11 +1,11 @@
 <template>
-  <div ref="map3d" class="map3d-box"></div>
+  <div id="map3d2" ref="map3d2" class="map3d-box"></div>
 </template>
 
 <script>
-import { renderer } from './index';
+import { renderer, labelRenderer } from './index';
 export default {
-name: 'map3d',
+name: 'map3d2',
 data() {
   return {};
 },
@@ -15,9 +15,14 @@ created: function () {
   // document.body.appendChild(renderer.domElement);//可以访问body
 },
 mounted: function () {
-  this.$refs.map3d.appendChild(renderer.domElement);
+  this.$refs.map3d2.appendChild(renderer.domElement);
+
+  // console.log(labelRenderer.domElement, '==---');
+  this.$refs.map3d2.appendChild(labelRenderer.domElement);
   // // Three.js渲染结果Canvas画布插入到body元素中
   // document.body.appendChild(renderer.domElement);
+  // console.log(renderer, '==ssssss==', labelRenderer);
+  // console.log(document.getElementById('myDiv'), '====----1111-');
 },
 methods: {}
 }
@@ -28,5 +33,6 @@ methods: {}
   width: 100%;
   height: 100%;
   background-color: rgb(242, 255, 208);
+  position: relative;
 }
 </style>
